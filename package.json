@@ -4,6 +4,7 @@
   "description": "A placement cell interface for the employees of this company to fill in the data into the database and then download it",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/biswa418/placement-Cell/issues"
   },
-  "homepage": "https://github.com/biswa418/placement-Cell#readme"
+  "homepage": "https://github.com/biswa418/placement-Cell#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.0.2",
+    "nodemon": "^2.0.21",
+    "passport": "^0.6.0"
+  }
 }

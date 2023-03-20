@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" style="scale: 1;" type="image/x-icon" href="images/favicon.ico">
+    <title>
+        <%= title %>
+    </title>
+
+    <script src="https://kit.fontawesome.com/7fa3a78bc5.js" crossorigin="anonymous"></script>
+    <%- style %>
+</head>
+
+<body>
+    <%- include('_header'); %>
+
+        <div id="layout-main">
+            <%- include('home'); %>
+        </div>
+
+        <%- include('_footer'); %>
+</body>
+
+</html>
