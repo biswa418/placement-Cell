@@ -1,0 +1,23 @@
+{
+  "name": "placementcell",
+  "version": "1.0.0",
+  "description": "A placement cell interface for the employees of this company to fill in the data into the database and then download it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biswa418/placement-Cell.git"
+  },
+  "keywords": [
+    "nodeJS",
+    "expressJS"
+  ],
+  "author": "Biswajeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biswa418/placement-Cell/issues"
+  },
+  "homepage": "https://github.com/biswa418/placement-Cell#readme"
+}
