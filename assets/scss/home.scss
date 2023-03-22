@@ -1,22 +1,28 @@
 body {
     #home-container {
         display: flex;
+        flex-direction: column;
+        margin: 0 0.5rem;
 
         section {
-            margin: 1.4rem;
             color: white;
-            background-color: #1b2730;
-            border-radius: 1rem;
-            height: 100%;
+
+            h3 {
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+
+            ul {
+                margin: 1.4rem;
+                color: white;
+                background-color: #1b2730;
+                border-radius: 1rem;
+                height: 100%;
+            }
         }
 
-        #feed-posts {
-            width: 70%;
-            padding: 1rem;
-        }
-
-        #user-friends {
-            width: 30%;
+        #feed-students,
+        #feed-interviews {
             padding: 1rem;
         }
     }

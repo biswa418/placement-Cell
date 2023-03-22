@@ -16,9 +16,16 @@ const studentSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        required: true
+        enum: ["Placed", "Not Placed"],
+        required: true,
     },
-    courseScore: []
+    courseScore: [],
+    interview: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Interview'
+        }
+    ]
 });
 
 

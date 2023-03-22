@@ -1,1 +1,36 @@
-<h1>Hello world!</h1>
+<link rel="stylesheet" href="/css/home.css">
+
+<div id="home-container">
+    <section id="feed-students">
+        <h3>List of Students</h3>
+
+        <ul>
+            <% for(student of students) { %>
+                <li>
+                    <p>Batch - <span>July</span></p>
+                    <p>Name - <span>student.name</span></p>
+                    <p>Staus - <span>student.status</span></p>
+
+                    <a href="/students/show-details-<%= student.id %>">View details</a>
+                    <a href="/students/edit-Details-<%= student.id %>">Edit details</a>
+                </li>
+                <% } %>
+        </ul>
+    </section>
+
+    <section id="feed-interviews">
+        <h3>List of Interviews</h3>
+
+        <ul>
+            <% for(interview of interviews) { %>
+                <li>
+                    <p>Name - <span>interview.name</span></p>
+                    <p>Date - <span>interview.date</span></p>
+
+                    <a href="/interviews/show-details-<%= student.id %>">View details</a>
+                    <a href="/interviews/edit-Details-<%= student.id %>">Edit details</a>
+                </li>
+                <% } %>
+        </ul>
+    </section>
+</div>
