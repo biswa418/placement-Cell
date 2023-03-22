@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/css/details.css">
+<link rel="icon" style="scale: 1;" type="image/x-icon" href="../images/favicon.ico">
+
+<div class="form-signin w-50 m-auto">
+    <div class="m-2 text-light" style="margin-top: 20px">
+        <h2>Add Student</h2>
+    </div>
+
+    <form action="/student/createStudent" method="POST">
+        <div class="form-floating m-2">
+            <input id="floatingInput" type="text" class="form-control" name="name" placeholder="Student name"
+                required />
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating m-2">
+            <input id="floatingEmail" type="text" class="form-control" name="email" placeholder="Student email"
+                required />
+            <label for="floatingEmail">Email address</label>
+        </div>
+        <div class="form-floating m-2">
+            <input id="floatingBatch" type="text" class="form-control" name="batch" placeholder="Student Batch"
+                required />
+            <label for="floatingBatch">Batch</label>
+        </div>
+
+        <div class="form-floating m-2">
+            <select class="form-input" name="status">
+                <optgroup label="Status" placeholder="Status">
+                    <option name="placed" value="Placed">Placed</option>
+                    <option name="Not placed" value="Not Placed" selected>Not Placed</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="d-flex">
+            <div class="form-floating m-2">
+                <input id="floatingDSA" class="form-control" type="integer" minValue="100" max="100" name="dsa_score"
+                    placeholder="DSA Score" required />
+                <label for="floatingDSA">DSA Score</label>
+            </div>
+            <div class="form-floating m-2">
+                <input id="floatingWD" class="form-control" type="integer" minValue="100" max="100" name="webD_score"
+                    placeholder="Web Development Score" required />
+                <label for="floatingWD">WebDev Score</label>
+
+            </div>
+            <div class="form-floating m-2">
+                <input id="floatingReact" class="form-control" type="integer" minValue="100" max="100"
+                    name="react_score" placeholder="React Score" required />
+                <label for="floatingReact">React Score</label>
+
+            </div>
+        </div>
+
+        <div class="form-input m-2">
+            <button class="w-100 btn btn-lg btn-primary " type="submit" value="Add Student">Add Student</button>
+        </div>
+
+        <div class="studentCardActions m-2 d-flex justify-content-end">
+            <div>
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </form>
+</div>

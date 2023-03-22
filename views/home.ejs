@@ -2,7 +2,11 @@
 
 <div id="home-container">
     <section id="feed-students">
-        <h3>List of Students</h3>
+        <h3 class="home-heading">List of Students</h3>
+
+        <p>
+            <a href="/students/addStudent">Add a student</a>
+        </p>
 
         <ul>
             <% for(student of students) { %>
@@ -11,15 +15,19 @@
                     <p>Name - <span>student.name</span></p>
                     <p>Staus - <span>student.status</span></p>
 
-                    <a href="/students/show-details-<%= student.id %>">View details</a>
-                    <a href="/students/edit-Details-<%= student.id %>">Edit details</a>
+                    <a href="/students/show-details/<%= student.id %>">View details</a>
+                    <a href="/students/edit-details/<%= student.id %>">Edit details</a>
                 </li>
                 <% } %>
         </ul>
     </section>
 
     <section id="feed-interviews">
-        <h3>List of Interviews</h3>
+        <h3 class="home-heading">List of Interviews</h3>
+
+        <p>
+            <a href="/interviews/addInterview">Add a interview</a>
+        </p>
 
         <ul>
             <% for(interview of interviews) { %>
@@ -27,8 +35,8 @@
                     <p>Name - <span>interview.name</span></p>
                     <p>Date - <span>interview.date</span></p>
 
-                    <a href="/interviews/show-details-<%= student.id %>">View details</a>
-                    <a href="/interviews/edit-Details-<%= student.id %>">Edit details</a>
+                    <a href="/interviews/show-details/<%= student.id %>">View details</a>
+                    <a href="/interviews/edit-details/<%= student.id %>">Edit details</a>
                 </li>
                 <% } %>
         </ul>

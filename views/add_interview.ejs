@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/css/details.css">
+<link rel="icon" style="scale: 1;" type="image/x-icon" href="../images/favicon.ico">
+
+<div class="form-signin w-50 m-auto">
+    <div class="m-3 text-light" style="margin-top: 20px">
+        <h2>Add Interview</h2>
+    </div>
+
+    <form action="/interview/createInterview" method="POST">
+        <div class="form-floating m-3">
+            <input id="floatingInput" class="form-control" type="text" name="company_name" placeholder="Company name"
+                required />
+            <label for="floatingInput">Company Name</label>
+        </div>
+
+        <div class="form-floating m-3">
+            <input id="floatingDate" type="date" class="form-control" name="interview_date"
+                placeholder="Interview Date" />
+            <label for="floatingDate">Date</label>
+        </div>
+
+        <div class="form-floating m-3">
+            <button class="w-100 btn btn-lg btn-primary " type="submit" value="Add Student">Add Interview</button>
+        </div>
+
+        <div class="studentCardActions m-3 d-flex justify-content-end">
+            <div class="cardLinks">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
