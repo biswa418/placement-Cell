@@ -7,10 +7,10 @@ module.exports.downloadReport = async function (req, res) {
         const Students = await Student.find({}).populate('interview');
         let report =
             "Student name, Student email, Student status, DSA Final Score, WebD Final Score, React Final Score, Interview date, Interview company, Interview result";
-        let studentData1 = "";
+        let set1 = "";
 
         for (let student of Students) {
-            studentData1 =
+            set1 =
                 student.name +
                 "," +
                 student.email +
@@ -25,18 +25,18 @@ module.exports.downloadReport = async function (req, res) {
 
             if (student.interview.length > 0) {
                 for (let interview of student.interview) {
-                    let studentData2 = "";
-                    studentData2 +=
+                    let set2 = "";
+                    set2 +=
                         "," +
                         interview.date.toString() +
                         "," +
                         interview.company_name +
                         "," +
-                        interview.students.result;
-                    report += "\n" + studentData1 + studentData2;
+                        interview.students[0].result;
+                    report += "\n" + set1 + set2;
                 }
             } else {
-                report += "\n" + studentData1;
+                report += "\n" + set1;
             }
         }
 
