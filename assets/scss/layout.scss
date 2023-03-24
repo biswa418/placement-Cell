@@ -19,3 +19,9 @@ body {
         min-height: 95vh;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .w-50 {
+        width: 87% !important;
+    }
+}
