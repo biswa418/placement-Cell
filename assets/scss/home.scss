@@ -11,7 +11,7 @@ body {
                 text-transform: uppercase;
                 font-weight: 600;
                 margin: 1rem 0;
-                font-size: large;
+                // font-size: large;
             }
 
             ul {
@@ -45,6 +45,18 @@ body {
 
         .list-container::-webkit-scrollbar-thumb {
             background-color: #7594ad;
+        }
+
+        .heading {
+            p {
+                margin: 0;
+                font-size: 1.2rem;
+
+                a {
+                    text-decoration: none;
+                    color: #1ba1f0;
+                }
+            }
         }
     }
 
@@ -121,5 +133,9 @@ body {
             min-width: 75%;
             margin-bottom: 3%;
         }
+    }
+
+    .heading {
+        justify-content: space-between;
     }
 }

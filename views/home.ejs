@@ -2,11 +2,14 @@
 
 <div id="home-container">
     <section id="feed-students">
-        <h3 class="home-heading">List of Students</h3>
+        <div class="heading d-flex justify-content-sm-between align-items-center">
 
-        <p>
-            <a href="/students/addStudent">Add a student</a>
-        </p>
+            <h3 class="home-heading">List of Students</h3>
+
+            <p>
+                <a href="/students/addStudent">Add <i class="fa-solid fa-user-plus"></i></a>
+            </p>
+        </div>
 
         <ul class="d-flex list-container">
             <% for(student of students) { %>
@@ -16,7 +19,7 @@
                             <%=student.name %>
                         </p>
 
-                        <a href="/students/removeStudent/<%=student._id%>">X</a>
+                        <a href="/students/removeStudent/<%=student._id%>"><i class="fa-solid fa-user-minus"></i></a>
                     </div>
 
                     <p>Batch: <span>
@@ -68,11 +71,13 @@
     </section>
 
     <section id="feed-interviews">
-        <h3 class="home-heading">List of Interviews</h3>
+        <div class="heading d-flex justify-content-sm-between align-items-center">
+            <h3 class="home-heading">List of Interviews</h3>
 
-        <p>
-            <a href="/interviews/addInterview">Add a interview</a>
-        </p>
+            <p>
+                <a href="/interviews/addInterview">Add <i class="fa-solid fa-square-plus"></i></a>
+            </p>
+        </div>
 
         <ul class="d-flex list-container">
             <% for(interview of interviews) { %>
@@ -81,7 +86,8 @@
                         <p>
                             <%= interview.company_name %>
                         </p>
-                        <a href="/interviews/removeInterview/<%=interview._id%>">X</a>
+                        <a href="/interviews/removeInterview/<%=interview._id%>"><i
+                                class="fa-solid fa-square-minus"></i></a>
                     </div>
 
                     <div>
