@@ -32,7 +32,7 @@ module.exports.downloadReport = async function (req, res) {
                         "," +
                         interview.company_name +
                         "," +
-                        interview.result;
+                        interview.students.result;
                     report += "\n" + studentData1 + studentData2;
                 }
             } else {

@@ -33,10 +33,13 @@ module.exports.edit = async function (req, res) {
     try {
         let interview = await findInterview(req.params.id);
 
-        return res.render('interview_profile', {
-            title: "Placement Cell | Interview details",
-            interview: interview
-        });
+        let students = interview.students;
+
+        for (let student of students) {
+            await Student.findByIdAndUpdate(student._id, { students: { result: req.body.status } });
+        }
+
+        return res.redirect('/');
 
     } catch (err) {
         if (err) { console.log('Error in showing interviews', err); }

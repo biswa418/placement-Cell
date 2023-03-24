@@ -1,34 +1,3 @@
-<!-- <div class="form"> -->
-<!-- <form action="/" method="POST">
-        <div class="form-input">
-            <input type="text" name="name" placeholder="Name: <%= interview.company_name%>" required disabled />
-        </div>
-        <div class="form-input">
-            <input type="text" name="batch" placeholder="Date: <%= interview.date %>" required disabled />
-        </div>
-        <h3>Students Applied for this interview</h3>
-        <%if(interview.students){%>
-            <% for(student of interview.students){%>
-                <div class="threeInput threeSubInput">
-                    <div class="form-input threeSubInput">
-                        <input class="subInput" type="text" name="company" placeholder="<%= student.student.name%>"
-                            required disabled />
-                    </div>
-                    <div class="form-input threeSubInput">
-                        <input class="subInput" type="text" name="result" placeholder="<%= student.result %>" disabled
-                            required />
-                    </div>
-                </div>
-                <%}%>
-                    <%} %>
-
-                        <div class="studentCardActions">
-                            <div class="cardLinks">
-                                <a href="/users/profile">Back</a>
-                            </div>
-                        </div>
-    </form> -->
-
 <div class="form-signin w-50 m-auto">
 
     <div class="m-2 text-light" style="margin-top: 2rem !important;">
@@ -71,10 +40,11 @@
                     <div class="form-floating m-2">
                         <select class="form-input" name="status" style="height: 100% !important;">
                             <optgroup label="Status" placeholder="Status">
-                                <option name="pass" value="pass">PASS</option>
-                                <option name="fail" value="fail">FAIL</option>
-                                <option name="onHold" value="onHold">On hold</option>
-                                <option name="didntAttempt" value="didntAttempt">Didn't Attempt</option>
+                                <option name="Passed" value="Passed">PASS</option>
+                                <option name="Failed" value="Failed">FAIL</option>
+                                <option name="On Hold" value="On Hold">On hold</option>
+                                <option name="Ongoing" value="Ongoing" selected>Ongoing</option>
+                                <option name="Didn't Attempt" value="Didn't Attempt">Didn't Attempt</option>
                             </optgroup>
                         </select>
                     </div>
