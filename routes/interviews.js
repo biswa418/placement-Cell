@@ -5,6 +5,7 @@ const interviewController = require('../controllers/interviewController');
 router.get('/show-details/:id', interviewController.show);
 router.get('/edit-details/:id', interviewController.edit);
 router.get('/addInterview', interviewController.add);
+router.post('/createInterview', interviewController.create);
 
 
 module.exports = router;

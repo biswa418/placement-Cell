@@ -6,7 +6,7 @@
         <h2>Add Student</h2>
     </div>
 
-    <form action="/student/createStudent" method="POST">
+    <form action="/students/createStudent" method="POST">
         <div class="form-floating m-2">
             <input id="floatingInput" type="text" class="form-control" name="name" placeholder="Student name"
                 required />
@@ -34,19 +34,19 @@
 
         <div class="d-flex">
             <div class="form-floating m-2">
-                <input id="floatingDSA" class="form-control" type="integer" minValue="100" max="100" name="dsa_score"
+                <input id="floatingDSA" class="form-control" type="integer" minValue="0" max="100" name="dsa_score"
                     placeholder="DSA Score" required />
                 <label for="floatingDSA">DSA Score</label>
             </div>
             <div class="form-floating m-2">
-                <input id="floatingWD" class="form-control" type="integer" minValue="100" max="100" name="webD_score"
+                <input id="floatingWD" class="form-control" type="integer" minValue="0" max="100" name="webD_score"
                     placeholder="Web Development Score" required />
                 <label for="floatingWD">WebDev Score</label>
 
             </div>
             <div class="form-floating m-2">
-                <input id="floatingReact" class="form-control" type="integer" minValue="100" max="100"
-                    name="react_score" placeholder="React Score" required />
+                <input id="floatingReact" class="form-control" type="integer" minValue="0" max="100" name="react_score"
+                    placeholder="React Score" required />
                 <label for="floatingReact">React Score</label>
 
             </div>

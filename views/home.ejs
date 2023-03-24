@@ -8,15 +8,60 @@
             <a href="/students/addStudent">Add a student</a>
         </p>
 
-        <ul>
+        <ul class="d-flex list-container">
             <% for(student of students) { %>
-                <li>
-                    <p>Batch - <span>July</span></p>
-                    <p>Name - <span>student.name</span></p>
-                    <p>Staus - <span>student.status</span></p>
+                <li class="student-list">
+                    <div class="student-card d-flex">
+                        <p>
+                            <%=student.name %>
+                        </p>
 
-                    <a href="/students/show-details/<%= student.id %>">View details</a>
-                    <a href="/students/edit-details/<%= student.id %>">Edit details</a>
+                        <a href="/students/removeStudent/<%=student._id%>">X</a>
+                    </div>
+
+                    <p>Batch: <span>
+                            <%= student.batch %>
+                        </span></p>
+                    <p>Staus: <span>
+                            <%= student.status %>
+                        </span></p>
+
+                    <p>Scores:
+                    <div class="scores">
+                        <div class="score-heading">
+                            <div>
+                                DSA
+                            </div>
+
+                            <div>
+                                Web Dev
+                            </div>
+
+                            <div>
+                                React
+                            </div>
+                        </div>
+
+                        <div class="scores-score">
+                            <div>
+                                <%= student.courseScore[0] %>
+                            </div>
+
+                            <div>
+                                <%= student.courseScore[1] %>
+                            </div>
+
+                            <div>
+                                <%= student.courseScore[2] %>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+
+                    <div class="links">
+                        <a href="/students/show-details/<%= student.id %>">View</a>
+                        <a href="/students/edit-details/<%= student.id %>">Edit</a>
+                    </div>
                 </li>
                 <% } %>
         </ul>
@@ -29,14 +74,26 @@
             <a href="/interviews/addInterview">Add a interview</a>
         </p>
 
-        <ul>
+        <ul class="d-flex list-container">
             <% for(interview of interviews) { %>
-                <li>
-                    <p>Name - <span>interview.name</span></p>
-                    <p>Date - <span>interview.date</span></p>
+                <li class="student-list">
+                    <div class="student-card d-flex">
+                        <p>
+                            <%= interview.company_name %>
+                        </p>
+                        <a href="/interviews/removeInterview/<%=interview._id%>">X</a>
+                    </div>
 
-                    <a href="/interviews/show-details/<%= student.id %>">View details</a>
-                    <a href="/interviews/edit-details/<%= student.id %>">Edit details</a>
+                    <div>
+                        <p>Date: <span>
+                                <%= interview.date %>
+                            </span></p>
+                    </div>
+
+                    <div class="links">
+                        <a href="/interviews/show-details/<%= interview._id %>">View <%= interview.students.length %>
+                                applied candidate.</a>
+                    </div>
                 </li>
                 <% } %>
         </ul>

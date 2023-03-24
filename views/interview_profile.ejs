@@ -1,5 +1,5 @@
-<div class="form">
-    <form action="/students/createStudent" method="POST">
+<!-- <div class="form"> -->
+<!-- <form action="/" method="POST">
         <div class="form-input">
             <input type="text" name="name" placeholder="Name: <%= interview.company_name%>" required disabled />
         </div>
@@ -25,6 +25,56 @@
                         <div class="studentCardActions">
                             <div class="cardLinks">
                                 <a href="/users/profile">Back</a>
+                            </div>
+                        </div>
+    </form> -->
+
+<div class="form-signin w-50 m-auto">
+
+    <div class="m-2 text-light" style="margin-top: 2rem !important;">
+        <h2>Interview Details</h2>
+    </div>
+
+    <form action="" method="POST">
+        <div class="form-floating m-2">
+            <input id="floatingInput" type="text" class="form-control" value="<%=interview.company_name %>" required
+                disabled />
+            <label for="floatingInput">
+                Company
+            </label>
+        </div>
+
+        <div class="form-floating m-2">
+            <input id="floatingEmail" type="text" class="form-control" value="<%= interview.date %>" required
+                disabled />
+            <label for="floatingEmail">
+                Date
+            </label>
+        </div>
+
+
+        <% if(interview.students.length> 0) {%>
+            <% for(student of interview.students){%>
+                <div class="threeInput threeSubInput">
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="company" placeholder="<%= interview.company%>"
+                            required disabled />
+                    </div>
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="date" placeholder="<%= interview.date %>" disabled
+                            required />
+                    </div>
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="result" placeholder="<%= interview.result %>" disabled
+                            required />
+                    </div>
+                </div>
+                <%}%>
+                    <%}%>
+
+                        <div class="studentCardActions m-2 d-flex justify-content-end">
+                            <div>
+                                <a href="/">Back</a>
                             </div>
                         </div>
     </form>

@@ -16,9 +16,9 @@ body {
 
             ul {
                 margin: 1.4rem;
+                margin-left: 0;
+                padding: 0;
                 color: white;
-                background-color: #1b2730;
-                border-radius: 1rem;
                 height: 100%;
             }
         }
@@ -27,19 +27,99 @@ body {
         #feed-interviews {
             padding: 1rem;
         }
+
+        .list-container {
+            // flex-wrap: wrap;
+            overflow: auto;
+            margin-bottom: 2%;
+        }
+
+        .list-container::-webkit-scrollbar {
+            width: 0.3rem;
+            height: 0.15rem;
+        }
+
+        .list-container::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .list-container::-webkit-scrollbar-thumb {
+            background-color: #7594ad;
+        }
     }
 
-    textarea {
-        background-color: #314758;
-        color: white;
-        border: none;
-        padding: 10px;
+    .student-list {
+        list-style: none;
+        min-width: 30%;
+        max-width: 35%;
         border-radius: 1rem;
-        resize: none;
+        padding: 1.2rem;
+        margin-right: 1rem;
+        margin-bottom: 2%;
+        background-color: #1b2730;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                margin-left: 0.4rem;
+                color: #7594ad;
+                font-weight: 200;
+            }
+        }
+
+        .student-card {
+            font-weight: 600;
+            justify-content: space-between;
+
+            a {
+                text-decoration: none;
+                color: #1ba1f0;
+            }
+        }
+
+        .scores {
+            margin-top: -2%;
+
+            .score-heading,
+            .scores-score {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .scores-score {
+                div {
+                    color: #7594ad;
+                    font-weight: 200;
+                }
+            }
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                margin: 4%;
+                margin-top: 0;
+                text-decoration: none;
+                color: #1ba1f0;
+            }
+        }
     }
 
-    textarea:focus-visible {
-        outline: none;
-        border: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .list-container {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .student-list {
+            min-width: 75%;
+            margin-bottom: 3%;
+        }
     }
 }

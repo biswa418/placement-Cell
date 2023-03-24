@@ -56,3 +56,21 @@ module.exports.add = async function (req, res) {
         res.redirect('/sign-in');
     }
 }
+
+module.exports.create = async function (req, res) {
+    let student = await Student.create({
+        name: req.body.name,
+        email: req.body.email,
+        batch: req.body.batch,
+        status: req.body.status,
+        courseScore: [req.body.dsa_score, req.body.webD_score, req.body.react_score],
+    });
+
+    if (student) {
+        req.flash('success', 'Added the student');
+        res.redirect('/');
+    } else {
+        req.flash('error', 'Could not add the student');
+        res.redirect('back');
+    }
+}

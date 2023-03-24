@@ -45,6 +45,21 @@ module.exports.add = async function (req, res) {
         });
     } else {
         req.flash('error', 'userToken expired. Please sign in again.');
-        res.redirect('/sign-in');
+        res.redirect('/users/sign-in');
+    }
+}
+
+module.exports.create = async function (req, res) {
+    let interview = await Interview.create({
+        company_name: req.body.company_name,
+        date: req.body.interview_date,
+    });
+
+    if (interview) {
+        req.flash('success', 'Added the interview');
+        res.redirect('/');
+    } else {
+        req.flash('error', 'Could not add the interview');
+        res.redirect('back');
     }
 }

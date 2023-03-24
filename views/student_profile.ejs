@@ -1,53 +1,79 @@
-<div class="form">
-    <form action="/students/createStudent" method="POST">
-        <div class="form-input">
-            <input type="text" name="name" placeholder="Name: <%= student.name%>" required disabled />
+<div class="form-signin w-50 m-auto">
+
+    <div class="m-2 text-light" style="margin-top: 2rem !important;">
+        <h2>Student Details</h2>
+    </div>
+
+    <form action="" method="POST">
+        <div class="form-floating m-2">
+            <input id="floatingInput" type="text" class="form-control" value="<%=student.name %>" required disabled />
+            <label for="floatingInput">
+                Name
+            </label>
         </div>
-        <div class="form-input">
-            <input type="text" name="email" placeholder="email: <%= student.email %>" required disabled />
+        <div class="form-floating m-2">
+            <input id="floatingEmail" type="text" class="form-control" value="<%= student.email %>" required disabled />
+            <label for="floatingEmail">
+                Email
+            </label>
         </div>
-        <div class="form-input">
-            <input type="text" name="batch" placeholder="Batch: <%= student.batch %>" required disabled />
+        <div class="form-floating m-2">
+            <input id="floatingBatch" type="text" class="form-control" value="<%= student.batch %>" required disabled />
+            <label for="floatingBatch">
+                Batch
+            </label>
         </div>
-        <div class="form-input">
-            <input type="text" name="batch" placeholder="Placement Status: <%= student.status %>" required disabled />
+
+        <div class="form-floating m-2">
+            <select class="form-input" value="<%= student.status %>">
+                <option name="placed" value="Placed">
+                    <%= student.status %>
+                </option>
+                </optgroup>
+            </select>
         </div>
-        <div class="threeInput threeSubInput">
-            <div class="form-input">
-                <input class="subInput" type="integer" minValue="100" max="100" name="dsa_score"
-                    placeholder="DSA Score: <%= student.dsa_score%>" required disabled />
+
+        <div class="d-flex">
+            <div class="form-floating m-2">
+                <input id="floatingDSA" class="form-control" value="<%= student.courseScore[0] %>" disabled />
+                <label for="floatingDSA">DSA Score</label>
             </div>
-            <div class="form-input">
-                <input class="subInput" type="integer" minValue="100" max="100" name="webD_score"
-                    placeholder="WebD Score: <%= student.webD_score %>" required disabled />
+            <div class="form-floating m-2">
+                <input id="floatingWD" class="form-control" value="<%= student.courseScore[1] %>" disabled />
+                <label for="floatingWD">WebDev Score</label>
+
             </div>
-            <div class="form-input">
-                <input class="subInput" type="integer" minValue="100" max="100" name="react_score"
-                    placeholder="React Score: <%= student.react_score%>" required disabled />
+            <div class="form-floating m-2">
+                <input id="floatingReact" class="form-control" value="<%= student.courseScore[2] %>" disabled />
+                <label for="floatingReact">React Score</label>
+
             </div>
         </div>
 
-        <% for(interview of student.interviews){%>
-            <div class="threeInput threeSubInput">
-                <div class="form-input threeSubInput">
-                    <input class="subInput" type="text" name="company" placeholder="<%= interview.company%>" required
-                        disabled />
-                </div>
-                <div class="form-input threeSubInput">
-                    <input class="subInput" type="text" name="date" placeholder="<%= interview.date %>" disabled
-                        required />
-                </div>
-                <div class="form-input threeSubInput">
-                    <input class="subInput" type="text" name="result" placeholder="<%= interview.result %>" disabled
-                        required />
-                </div>
-            </div>
-            <%}%>
 
-                <div class="studentCardActions">
-                    <div class="cardLinks">
-                        <a href="/users/profile">Back</a>
+        <% if(student.interview) {%>
+            <% for(interview of student.interview){%>
+                <div class="threeInput threeSubInput">
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="company" placeholder="<%= interview.company_name%>"
+                            required disabled />
+                    </div>
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="date" placeholder="<%= interview.date %>" disabled
+                            required />
+                    </div>
+                    <div class="form-input threeSubInput">
+                        <input class="subInput" type="text" name="result" placeholder="<%= interview.result %>" disabled
+                            required />
                     </div>
                 </div>
+                <%}%>
+                    <%}%>
+
+                        <div class="studentCardActions m-2 d-flex justify-content-end">
+                            <div>
+                                <a href="/">Back</a>
+                            </div>
+                        </div>
     </form>
 </div>
