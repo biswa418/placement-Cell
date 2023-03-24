@@ -93,8 +93,6 @@ module.exports.remove = async function (req, res) {
     try {
         let student = await findStudent(req.params.id);
 
-        console.log(student);
-
         if (!student) {
             req.flash("error", "Couldn't find student");
             return;
@@ -112,7 +110,7 @@ module.exports.remove = async function (req, res) {
             }
         }
 
-        await Student.deleteOne({ _id: req.params.id });
+        await Student.findByIdAndDelete(req.params.id);
         req.flash("success", "Student removed!");
         return res.redirect("back");
 
@@ -120,4 +118,74 @@ module.exports.remove = async function (req, res) {
         console.log(err);
     }
 
+}
+
+//update the student details
+module.exports.update = async function (req, res) {
+    let student = await findStudent(req.params.id);
+
+    if (req.body.company_name) {
+        let company = await Interview.findOne({ company_name: req.body.company_name });
+
+        //check if interview object exists or not
+        if (!company) {
+            company = await Interview.create({
+                company_name: req.body.company_name,
+                date: req.body.interview_date,
+                students: [{
+                    student: student._id,
+                    result: req.body.status
+                }]
+            });
+        } else {
+            let students = company.students;
+            let insert = true;
+
+            for (let st of students) {
+                if (st.student == req.params.id) {
+                    insert = false;
+                }
+            }
+
+            if (insert) {
+                students.push({
+                    student: student._id,
+                    result: req.body.status
+                });
+            }
+
+            await Interview.findByIdAndUpdate(company._id, { students: students, result: req.body.status });
+            company = await Interview.findById(company._id);
+        }
+
+        let interview = student.interview;
+        let insert = true;
+
+        //check if company already exists on student or not
+        for (let i of interview) {
+            if (i.id == company.id) {
+                insert = false;
+            }
+        }
+
+        if (insert) {
+            interview.push(company._id);
+        }
+
+        await Student.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            email: req.body.email,
+            interview: interview
+        });
+
+    } else {
+
+        await Student.findByIdAndUpdate(req.params.id, {
+            name: req.body.name,
+            email: req.body.email
+        });
+    }
+
+    req.flash('success', 'Student details updated successfully');
+    return res.redirect('/');
 }

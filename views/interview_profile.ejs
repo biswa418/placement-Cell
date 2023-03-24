@@ -35,7 +35,7 @@
         <h2>Interview Details</h2>
     </div>
 
-    <form action="" method="POST">
+    <form action="/interviews/edit-details/<%= interview._id %>" method="POST">
         <div class="form-floating m-2">
             <input id="floatingInput" type="text" class="form-control" value="<%=interview.company_name %>" required
                 disabled />
@@ -54,25 +54,43 @@
 
 
         <% if(interview.students.length> 0) {%>
+            <div class="m-2 text-light" style="margin-top: 2rem !important;">
+                <h2>Applied Students</h2>
+            </div>
+
             <% for(student of interview.students){%>
-                <div class="threeInput threeSubInput">
-                    <div class="form-input threeSubInput">
-                        <input class="subInput" type="text" name="company" placeholder="<%= interview.company%>"
+                <div class="d-flex">
+                    <div class="form-floating m-2">
+                        <input id="floatingComp" type="text" class="form-control" value="<%= student.student.name %>"
                             required disabled />
+                        <label for="floatingComp">
+                            Name
+                        </label>
                     </div>
-                    <div class="form-input threeSubInput">
-                        <input class="subInput" type="text" name="date" placeholder="<%= interview.date %>" disabled
-                            required />
-                    </div>
-                    <div class="form-input threeSubInput">
-                        <input class="subInput" type="text" name="result" placeholder="<%= interview.result %>" disabled
-                            required />
+
+                    <div class="form-floating m-2">
+                        <select class="form-input" name="status" style="height: 100% !important;">
+                            <optgroup label="Status" placeholder="Status">
+                                <option name="pass" value="pass">PASS</option>
+                                <option name="fail" value="fail">FAIL</option>
+                                <option name="onHold" value="onHold">On hold</option>
+                                <option name="didntAttempt" value="didntAttempt">Didn't Attempt</option>
+                            </optgroup>
+                        </select>
                     </div>
                 </div>
                 <%}%>
+
+                    <div class="form-input m-2">
+                        <button class="w-100 btn btn-lg btn-primary " type="submit" value="Add Student">Update
+                            Details</button>
+                    </div>
+
                     <%}%>
 
-                        <div class="studentCardActions m-2 d-flex justify-content-end">
+
+
+                        <div class="m-2 d-flex justify-content-end">
                             <div>
                                 <a href="/">Back</a>
                             </div>

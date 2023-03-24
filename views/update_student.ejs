@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/details.css">
-<link rel="icon" style="scale: 1;" type="image/x-icon" href="../images/favicon.ico">
+<link rel="icon" style="scale: 1;" type="image/x-icon" href="../../images/favicon.ico">
 
 <div class="form-signin w-50 m-auto">
     <div class="m-2 text-light" style="margin-top: 20px">
@@ -29,22 +29,23 @@
         </div>
 
         <div class="form-floating m-2">
-            <input id="floatingInput" class="form-control" type="text" name="company_name" placeholder="Company name"
-                required />
+            <input id="floatingInput" class="form-control" type="text" name="company_name" placeholder="Company name" />
             <label for="floatingInput">Company Name</label>
         </div>
 
         <div class="form-floating m-2">
-            <input id="floatingDate" type="date" class="form-control" name="interview_date" placeholder="Interview Date"
-                required />
+            <input id="floatingDate" type="date" class="form-control" name="interview_date"
+                placeholder="Interview Date" />
             <label for="floatingDate">Date</label>
         </div>
 
         <div class="form-floating m-2">
             <select class="form-input" name="status">
                 <optgroup label="Status" placeholder="Status">
-                    <option name="placed" value="Placed">Placed</option>
-                    <option name="Not placed" value="Not Placed" selected>Not Placed</option>
+                    <option name="pass" value="pass">PASS</option>
+                    <option name="fail" value="fail">FAIL</option>
+                    <option name="onHold" value="onHold">On hold</option>
+                    <option name="didntAttempt" value="didntAttempt">Didn't Attempt</option>
                 </optgroup>
             </select>
         </div>

@@ -40,7 +40,7 @@ module.exports.downloadReport = async function (req, res) {
             }
         }
 
-        fs.writeFileSync("uploads/report.csv", report);
+        fs.writeFileSync("./uploads/report.csv", report);
 
         req.flash("success", "Downloaded CSV report!");
         return res.download("./uploads/report.csv");
