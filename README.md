@@ -29,6 +29,8 @@ Hold, Didn’t Attempt])
 
 - Pages
 - Sign Up and Sign In only for employees
+<img src="./assets/images/signin.png">
+<img src="./assets/images/signup.png">
 - List of students + add new student
 - List of Interviews + form to create an interview (with date)
 - Allocate a student to an interview (edit student page)
@@ -39,3 +41,4 @@ page itself
 - Student id, student name, student college, student status, DSA Final Score, WebD Final
 Score, React Final Score, interview date, interview company, interview student result
 - A student can have multiple entries based on the interviews she/he has given.
+<img src="./assets/images/download.png">
