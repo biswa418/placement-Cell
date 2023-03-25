@@ -5,7 +5,7 @@ const env = require('./environment');
 mongoose.set('strictQuery', false);
 
 //connect to db
-mongoose.connect(`mongodb+srv://admin:${env.db}@placement.jdhzqhg.mongodb.net/placement_development?retryWrites=true&w=majority`);
+mongoose.connect(`mongodb+srv://admin:${env.db}@placement.jdhzqhg.mongodb.net/?retryWrites=true&w=majority`);
 
 //connection establish
 const db = mongoose.connection;
