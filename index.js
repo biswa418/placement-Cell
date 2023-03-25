@@ -95,7 +95,7 @@ app.use(session({
         SameSite: 'None', //browser warns to deprecate it as a third party cookie
     },
     store: MongoStore.create({
-        mongoUrl: `mongodb+srv://admin:${env.db}@placement.jdhzqhg.mongodb.net/placement_development`,
+        mongoUrl: `mongodb+srv://admin:${env.db}@placement.jdhzqhg.mongodb.net/placement_development?retryWrites=true&w=majority`,
         autoRemove: 'disabled'
     },
 
