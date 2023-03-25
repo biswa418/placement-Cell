@@ -57,7 +57,6 @@
             <div class="m-2 text-light" style="margin-top: 2rem !important;">
                 <h2>Applied Companies</h2>
             </div>
-
             <% for(interview of student.interview){%>
                 <div class="d-flex justify-content-between">
                     <div class="form-floating m-2">
@@ -76,13 +75,18 @@
                         </label>
                     </div>
 
-                    <div class="form-floating m-2">
-                        <input id="floatingComp" type="text" class="form-control"
-                            value="<%= interview.students[0].result %>" required disabled />
-                        <label for="floatingComp">
-                            Result
-                        </label>
-                    </div>
+                    <% for(let i of interview.students){ %>
+                        <% if(i.student==student._id){ %>
+                            <div class="form-floating m-2">
+                                <input id="floatingComp" type="text" class="form-control" value="<%= i.result %>"
+                                    required disabled />
+                                <label for="floatingComp">
+                                    Result
+                                </label>
+                            </div>
+                            <% } %>
+                                <%} %>
+
                 </div>
                 <%}%>
                     <%}%>

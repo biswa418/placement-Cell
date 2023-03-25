@@ -38,6 +38,14 @@
                     </div>
 
                     <div class="form-floating m-2">
+                        <input id="floatingComp" type="text" class="form-control" value="<%= student.status %>" required
+                            disabled />
+                        <label for="floatingComp">
+                            Current Status
+                        </label>
+                    </div>
+
+                    <div class="form-floating m-2">
                         <select class="form-input" name="status" style="height: 100% !important;">
                             <optgroup label="Status" placeholder="Status">
                                 <option name="Passed" value="Passed">PASS</option>
