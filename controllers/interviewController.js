@@ -36,7 +36,7 @@ module.exports.edit = async function (req, res) {
         let students = interview.students;
 
         for (let student of students) {
-            await Student.findByIdAndUpdate(student._id, { students: { result: req.body.status } });
+            await Interview.findByIdAndUpdate(interview._id, { students: { result: req.body[`status-${student.student._id}`] } });
         }
 
         return res.redirect('/');
