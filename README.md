@@ -10,7 +10,9 @@ or
 <code>node index.js</code>
 
 ## Find the demo on site - please give a bit time to load
-<a> Link here </a>
+<a href="https://placement-cell-52w7.onrender.com" target="_blank"> Link here - live </a>
+
+<a target="_blank" href="https://youtu.be/Se0MS0WF2BA"> video - see features if link doesnt work </a>
 
 ## Features to the site
 - Batch
