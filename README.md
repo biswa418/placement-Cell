@@ -4,6 +4,11 @@ A placement cell app backend using nodeJS
 ## how to setup
 npm install <code>libraries found in package.json</code>
 
+-- for <code>mongoDB atlas</code> url has been changed in <code>index.js</code> and <code>mongoose</code>
+line no. 98 in index.js and line no. 8 in mongoose.js - change it to localhost/< db_name> to use the local mongoDB server
+line 98 -- mongodb://127.0.0.1:27017/ < db name>
+line 8 -- mongodb://127.0.0.1:27017/ < db name>
+
 ## run the app
 npm start 
 or

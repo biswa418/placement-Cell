@@ -34,6 +34,10 @@ module.exports.edit = async function (req, res) {
         let students = interview.students;
 
         for (let student of students) {
+            if (req.body[`status-${student.student._id}`] == 'Passed') {
+                await Student.findByIdAndUpdate(student.student._id, { status: "Placed" });
+            }
+
             student.result = req.body[`status-${student.student._id}`];
         }
 
