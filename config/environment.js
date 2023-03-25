@@ -25,7 +25,7 @@ const development = {
 const production = {
     name: 'production',
     asset_path: 'public/assets',
-    session_cookie_key: 'something', //process.env.PLACEMENT_SESSION_COOKIE_KEY,
+    session_cookie_key: process.env.PLACEMENT_SESSION_COOKIE_KEY,
     db: process.env.PLACEMENT_DB,
     morgan: {
         mode: 'combined',
