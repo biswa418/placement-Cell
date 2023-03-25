@@ -57,6 +57,12 @@ module.exports.add = async function (req, res) {
 }
 
 module.exports.create = async function (req, res) {
+    //check if already exist then only create
+    if (Interview.findOne({ company_name: req.body.company_name })) {
+        req.flash('warning', 'Interview already exists');
+        return res.redirect('back');
+    }
+
     let interview = await Interview.create({
         company_name: req.body.company_name,
         date: req.body.interview_date,
