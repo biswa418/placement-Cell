@@ -10,7 +10,7 @@ or
 <code>node index.js</code>
 
 ## Find the demo on site - please give a bit time to load
-<a href="https://placement-cell-52w7.onrender.com"> Link here - placment </a>
+<a href="https://placement-cell-52w7.onrender.com" target="_blank"> Link here - placment </a>
 
 ## Features to the site
 - Batch
