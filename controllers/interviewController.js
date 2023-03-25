@@ -17,8 +17,6 @@ module.exports.show = async function (req, res) {
     try {
         let interview = await findInterview(req.params.id);
 
-        // console.log(interview.students[0].student);
-
         return res.render('interview_profile', {
             title: "Placement Cell | Interview details",
             interview: interview
@@ -36,9 +34,10 @@ module.exports.edit = async function (req, res) {
         let students = interview.students;
 
         for (let student of students) {
-            await Interview.findByIdAndUpdate(interview._id, { students: { result: req.body[`status-${student.student._id}`] } });
+            student.result = req.body[`status-${student.student._id}`];
         }
 
+        await Interview.findByIdAndUpdate(interview._id, { students: students });
         return res.redirect('/');
 
     } catch (err) {

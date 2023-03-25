@@ -4,9 +4,9 @@
   "description": "A placement cell interface for the employees of this company to fill in the data into the database and then download it",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod_start": "NODE_ENV=production node index.js"
+    "prod_start": "NODE_ENV=production nodemon index.js"
   },
   "repository": {
     "type": "git",

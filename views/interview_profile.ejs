@@ -46,7 +46,8 @@
                     </div>
 
                     <div class="form-floating m-2">
-                        <select class="form-input" name="status-<%= student._id %>" style="height: 100% !important;">
+                        <select class="form-input" name="status-<%= student.student._id %>"
+                            style="height: 100% !important;">
                             <optgroup label="Status" placeholder="Status">
                                 <option name="Passed" value="Passed">PASS</option>
                                 <option name="Failed" value="Failed">FAIL</option>
@@ -65,8 +66,6 @@
                     </div>
 
                     <%}%>
-
-
 
                         <div class="m-2 d-flex justify-content-end">
                             <div>
