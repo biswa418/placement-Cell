@@ -8,59 +8,71 @@ const fs = require('fs');
 const path = require('path');
 const sass = require('sass');
 //mongo
-const db = require('./config/mongoose');
+const db = require('./config/mongoose');    //mongoose
 const session = require('express-session'); //session cookie
+const logger = require('morgan'); //logger - prod
+
 const passport = require('passport');       //auth
-const env = require('./config/environment');
-const flash = require('connect-flash');
-const MongoStore = require('connect-mongo');
-const passportLocal = require('./config/passport-local-strategy');
-const customMware = require('./config/Notymiddleware');
+const env = require('./config/environment'); //env var
+const flash = require('connect-flash'); //flash message
+const MongoStore = require('connect-mongo');    //db connect
+const passportLocal = require('./config/passport-local-strategy');  //local strat for passport
+const customMware = require('./config/Notymiddleware'); //use noty
 
-const srcDir = path.join(__dirname, 'assets', 'scss');
-const destDir = path.join(__dirname, 'assets', 'css');
+//helper to read files from manifest
+require('./config/helpers')(app);
 
-//convert scss to css
-fs.readdir(srcDir, (err, files) => {
-    if (err) {
-        console.error(err);
-        return;
-    }
+if (env.name == 'development') {
 
-    files.forEach(file => {
-        if (!file.endsWith('.scss')) {
+    const srcDir = path.join(__dirname, 'assets', 'scss');
+    const destDir = path.join(__dirname, 'assets', 'css');
+
+    //convert scss to css
+    fs.readdir(srcDir, (err, files) => {
+        if (err) {
+            console.error(err);
             return;
         }
 
-        const filePath = path.join(srcDir, file);
-        const outputFile = file.replace(/\.scss$/, '.css');
-        const outputFilePath = path.join(destDir, outputFile);
-
-        sass.render({
-            file: filePath,
-            outputStyle: 'compressed'
-        }, (err, result) => {
-            if (err) {
-                console.error(err);
+        files.forEach(file => {
+            if (!file.endsWith('.scss')) {
                 return;
             }
 
-            fs.writeFile(outputFilePath, result.css.toString(), err => {
+            const filePath = path.join(srcDir, file);
+            const outputFile = file.replace(/\.scss$/, '.css');
+            const outputFilePath = path.join(destDir, outputFile);
+
+            sass.render({
+                file: filePath,
+                outputStyle: 'compressed'
+            }, (err, result) => {
                 if (err) {
                     console.error(err);
-                } else {
+                    return;
                 }
+
+                fs.writeFile(outputFilePath, result.css.toString(), err => {
+                    if (err) {
+                        console.error(err);
+                    } else {
+                    }
+                });
             });
         });
+        console.log(`SCSS compiled to CSS`);
     });
-    console.log(`SCSS compiled to CSS`);
-});
+}
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('assets'));
+app.use(express.static(env.asset_path));
 
 //use cookie parser 
 app.use(cookieParser());
+
+
+//prod logs
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 //use the layouts
 app.use(expressLayouts);
